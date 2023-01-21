@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MyForum.BL.Entities.Comment>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@ViewData["PostTitle"]</h1>
+
+<div>
+    <h3>@ViewData["PostDescription"]</h3>
+    <hr />
+    <h4>Content</h4>
+    <p>@ViewData["PostContent"]</p>
+</div>
+<hr />
+<h4>Comments</h4>
+<hr />
+<table class="table">
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Text)
+                </td>
+                <td class="align-middle">
+                        <a class="btn btn-outline-primary" asp-controller="Comments" asp-action="Edit" asp-route-id="@item.CommentId"><i class="bi bi-ticket-detailed-fill"></i> Edit</a> |
+                        <a class="btn btn-danger text-white" asp-controller="Comments" asp-action="Delete" asp-route-id="@item.CommentId"><i class="bi bi-trash"></i> Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<br />
+<div>
+    <a class="btn btn-outline-success" asp-controller="Comments" asp-action="Create" asp-route-id="@ViewData["idpost"]"><i class="bi bi-stickies-fill"></i> Add a New Comment</a>
+    <a asp-controller="Blogs" asp-action="Details" asp-route-id="@ViewData["idblog"]"><i class="bi bi-back"></i> Back to List</a>
+</div>

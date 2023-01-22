@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using MyForum.BL.Entities;
+using System.Net.Mail;
 
 namespace MyForum.WEB.Areas.Identity.Pages.Account
 {
@@ -152,10 +153,22 @@ namespace MyForum.WEB.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
+                MailAddress address = new MailAddress(Input.Email);
+                string userName = address.User;
+                var user = new User
+                {
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                    UserName = userName,
+                    FirstName = "User",
+                    LastName = "Extern",
+                    Email = Input.Email
+
+
+                };
+                //var user = CreateUser();
+
+                //await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                //await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)

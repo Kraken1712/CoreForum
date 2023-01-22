@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -15,11 +16,13 @@ namespace MyForum.WEB.Controllers
     {
         private readonly MyForumDbContext _context;
         private readonly IWebHostEnvironment _HostEnvironment;
+        private readonly UserManager<User> _userManager;
 
-        public PostsController(MyForumDbContext context, IWebHostEnvironment hostEnvironment)
+        public PostsController(MyForumDbContext context, IWebHostEnvironment hostEnvironment, UserManager<User> userManager)
         {
             _context = context;
             this._HostEnvironment = hostEnvironment;
+            _userManager = userManager;
         }
 
         // GET: Posts
@@ -44,18 +47,30 @@ namespace MyForum.WEB.Controllers
             {
                 return NotFound();
             }
+
+            var _users = await _userManager.Users.ToListAsync();
             foreach (var item in _context.Comments)
             {
                 if (item.PostId == id)
                 {
+                    foreach (var element in _users)
+                    {
+                        if (item.Id == element.Id)
+                        {
+                            item.User = element;
+                        }
+                    }
                     p.Add(item);
                 }
+
             }
+
             ViewData["PostTitle"] = post.Title;
             ViewData["PostDescription"] = post.Description;
             ViewData["PostContent"] = post.Content;
             ViewData["idpost"] = id;
             ViewData["idblog"] = post.BlogId;
+
 
             return View(p);
         }
@@ -88,7 +103,7 @@ namespace MyForum.WEB.Controllers
                 //
                 _context.Add(post);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details","Blogs",new { id = post.BlogId});
+                return RedirectToAction("Details", "Blogs", new { id = post.BlogId });
             }
             ViewData["BlogId"] = new SelectList(_context.Blogs, "BlogId", "BlogId", post.BlogId);
             return View(post);
@@ -151,7 +166,7 @@ namespace MyForum.WEB.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Details","Blogs", new { id = post.BlogId });
+                return RedirectToAction("Details", "Blogs", new { id = post.BlogId });
             }
             ViewData["BlogId"] = new SelectList(_context.Blogs, "BlogId", "BlogId", post.BlogId);
             return View(post);
@@ -194,14 +209,14 @@ namespace MyForum.WEB.Controllers
                     System.IO.File.Delete(imagepath);
                 _context.Posts.Remove(post);
             }
-            
+
             await _context.SaveChangesAsync();
-            return RedirectToAction("Details","Blogs",new { id = post?.BlogId });
+            return RedirectToAction("Details", "Blogs", new { id = post?.BlogId });
         }
 
         private bool PostExists(int id)
         {
-          return _context.Posts.Any(e => e.PostId == id);
+            return _context.Posts.Any(e => e.PostId == id);
         }
     }
 }

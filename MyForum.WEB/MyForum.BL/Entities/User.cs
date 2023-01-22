@@ -24,5 +24,6 @@ namespace MyForum.BL.Entities
         public byte[]? ProfilePicture { get; set; }
 
         public virtual List<Blog>? Blogs { get; set; }
+        public virtual List<Comment>? Comments { get; set; }
     }
 }

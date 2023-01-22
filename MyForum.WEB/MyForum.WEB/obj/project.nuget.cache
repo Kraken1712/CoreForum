@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gFpAu6pQfm1ptleli5qJJAvtI4iIzqsvvx2BQHHuVGmvZBaPlddMJafil18Z7ZraOx6F3A4K25HwngqM+hXD8A==",
+  "dgSpecHash": "eU+UAySvIsUL5uMLmOLpG9ayuYz//fzDsJmO8+cC0EhVPZflTHqFFz8Vz2+d8gJFfaLfujj7J6+LdpqBYLuYbQ==",
   "success": true,
-  "projectFilePath": "D:\\Visual Stedio\\période 2\\Forum Asp\\MyForum.WEB\\MyForum.WEB\\MyForum.WEB.csproj",
+  "projectFilePath": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\MyForum.WEB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

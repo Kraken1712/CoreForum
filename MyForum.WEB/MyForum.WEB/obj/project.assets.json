@@ -10605,11 +10605,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Visual Stedio\\période 2\\Forum Asp\\MyForum.WEB\\MyForum.WEB\\MyForum.WEB.csproj",
+      "projectUniqueName": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\MyForum.WEB.csproj",
       "projectName": "MyForum.WEB",
-      "projectPath": "D:\\Visual Stedio\\période 2\\Forum Asp\\MyForum.WEB\\MyForum.WEB\\MyForum.WEB.csproj",
+      "projectPath": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\MyForum.WEB.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\Visual Stedio\\période 2\\Forum Asp\\MyForum.WEB\\MyForum.WEB\\obj\\",
+      "outputPath": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10626,8 +10626,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Visual Stedio\\période 2\\Forum Asp\\MyForum.WEB\\MyForum.DAL\\MyForum.DAL.csproj": {
-              "projectPath": "D:\\Visual Stedio\\période 2\\Forum Asp\\MyForum.WEB\\MyForum.DAL\\MyForum.DAL.csproj"
+            "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.DAL\\MyForum.DAL.csproj": {
+              "projectPath": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.DAL\\MyForum.DAL.csproj"
             }
           }
         }

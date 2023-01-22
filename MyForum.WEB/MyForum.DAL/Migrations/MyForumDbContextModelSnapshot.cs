@@ -196,6 +196,9 @@ namespace MyForum.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentId"), 1L, 1);
 
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<byte?>("Img")
                         .HasColumnType("tinyint");
 
@@ -207,6 +210,8 @@ namespace MyForum.DAL.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("CommentId");
+
+                    b.HasIndex("Id");
 
                     b.HasIndex("PostId");
 
@@ -423,6 +428,10 @@ namespace MyForum.DAL.Migrations
 
             modelBuilder.Entity("MyForum.BL.Entities.Comment", b =>
                 {
+                    b.HasOne("MyForum.BL.Entities.User", "User")
+                        .WithMany("Comments")
+                        .HasForeignKey("Id");
+
                     b.HasOne("MyForum.BL.Entities.Post", "Post")
                         .WithMany("Comments")
                         .HasForeignKey("PostId")
@@ -430,6 +439,8 @@ namespace MyForum.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Post");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MyForum.BL.Entities.Post", b =>
@@ -461,6 +472,8 @@ namespace MyForum.DAL.Migrations
             modelBuilder.Entity("MyForum.BL.Entities.User", b =>
                 {
                     b.Navigation("Blogs");
+
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

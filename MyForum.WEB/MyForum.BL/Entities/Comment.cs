@@ -23,5 +23,9 @@ namespace MyForum.BL.Entities
         [ForeignKey("Post")]
         public int PostId { get; set; }
         public Post? Post { get; set; }
+
+        [ForeignKey("User")]
+        public string? Id;
+        public User? User { get; set; }
     }
 }

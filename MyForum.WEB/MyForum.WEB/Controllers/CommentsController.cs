@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -61,9 +63,11 @@ namespace MyForum.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                comment.Id = userId;
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details","Posts",new { id = comment.PostId });
+                return RedirectToAction("Details", "Posts", new { id = comment.PostId });
             }
             ViewData["PostId"] = new SelectList(_context.Posts, "PostId", "Content", comment.PostId);
             return View(comment);
@@ -91,7 +95,7 @@ namespace MyForum.WEB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CommentId,Text,Img,PostId")] Comment comment)
+        public async Task<IActionResult> Edit(int id, [Bind("CommentId,Text,Img,Id,PostId")] Comment comment)
         {
             if (id != comment.CommentId)
             {
@@ -116,7 +120,7 @@ namespace MyForum.WEB.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Details","Posts", new { id = comment.PostId });
+                return RedirectToAction("Details", "Posts", new { id = comment.PostId });
             }
             ViewData["PostId"] = new SelectList(_context.Posts, "PostId", "Content", comment.PostId);
             return View(comment);
@@ -155,14 +159,14 @@ namespace MyForum.WEB.Controllers
             {
                 _context.Comments.Remove(comment);
             }
-            
+
             await _context.SaveChangesAsync();
-            return RedirectToAction("Details","Posts",new { id = comment?.PostId });
+            return RedirectToAction("Details", "Posts", new { id = comment?.PostId });
         }
 
         private bool CommentExists(int id)
         {
-          return _context.Comments.Any(e => e.CommentId == id);
+            return _context.Comments.Any(e => e.CommentId == id);
         }
     }
 }

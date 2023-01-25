@@ -16,6 +16,7 @@ namespace MyForum.DAL
         public override DbSet<User>? Users { get; set; }
         public DbSet<Comment>? Comments { get; set; }
         public DbSet<Theme>? Themes { get; set; }
+        public DbSet<Repl>? Repls { get; set; }
         public MyForumDbContext(DbContextOptions<MyForumDbContext> options)
             : base(options)
         {

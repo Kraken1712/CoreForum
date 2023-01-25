@@ -44,9 +44,43 @@
                 </td>
                 <td class="align-middle col-3">
                     <a class="btn btn-outline-primary" asp-controller="Comments" asp-action="Edit" asp-route-id="@item.CommentId"><i class="bi bi-ticket-detailed-fill"></i> Edit</a> |
-                    <a class="btn btn-danger text-white" asp-controller="Comments" asp-action="Delete" asp-route-id="@item.CommentId"><i class="bi bi-trash"></i> Delete</a>
+                    <a class="btn btn-danger text-white" asp-controller="Comments" asp-action="Delete" asp-route-id="@item.CommentId"><i class="bi bi-trash"></i> Delete</a> |
+                    <a class="btn btn-outline-success" asp-controller="Repls" asp-action="Create" asp-route-id="@item.CommentId"><i class="bi bi-stickies-fill">Reply</i></a>
                 </td>
             </tr>
+            if (item.Repls != null)
+            {
+                foreach (var elemnt in item.Repls)
+                {
+                    <tr>
+                        <td class="align-middle col-3 offset-2">
+                            @if (item.User.ProfilePicture != null)
+                            {
+                                <img style="width:40px;height:40px; object-fit:cover; border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(item.User.ProfilePicture))" />  <b>@item.User.FirstName @item.User.LastName</b>
+                            }
+                            else
+                            {
+                                <img src="~/images/signup-icon.webp" height="15" /> <b>@item.User.FirstName @item.User.LastName</b>
+                            }
+                        </td>
+                        <td class="align-middle col-4">
+                            @if (elemnt.Text != null)
+                            {
+                                @Html.DisplayFor(modelItem => elemnt.Text)
+                            }
+                            @if (elemnt.Picname != null)
+                            {
+                                <img src="@("~/Replimage/"+ elemnt.Picname)" asp-append-version="true" width="70px" height="100px" />
+                            }
+                        </td>
+                        <td class="align-middle col-3">
+                            <a class="btn btn-outline-primary" asp-controller="Comments" asp-action="Edit" asp-route-id="@item.CommentId"><i class="bi bi-ticket-detailed-fill"></i> Edit</a> |
+                            <a class="btn btn-danger text-white" asp-controller="Comments" asp-action="Delete" asp-route-id="@item.CommentId"><i class="bi bi-trash"></i> Delete</a> |
+                            <a class="btn btn-outline-success" asp-controller="Repls" asp-action="Create" asp-route-id="@item.CommentId"><i class="bi bi-stickies-fill">Reply</i></a>
+                        </td>
+                    </tr>
+                }
+            }
         }
     </tbody>
 </table>

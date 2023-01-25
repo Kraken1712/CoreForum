@@ -42,13 +42,14 @@ namespace MyForum.WEB.Controllers
             }
 
             var post = await _context.Posts
-                .FirstOrDefaultAsync(m => m.PostId == id); ;
+                .FirstOrDefaultAsync(m => m.PostId == id); 
             if (post == null)
             {
                 return NotFound();
             }
-
+            var _repls = await _context.Repls.ToListAsync();
             var _users = await _userManager.Users.ToListAsync();
+            List<Repl> aaa = new List<Repl>(); 
             foreach (var item in _context.Comments)
             {
                 if (item.PostId == id)
@@ -58,6 +59,14 @@ namespace MyForum.WEB.Controllers
                         if (item.Id == element.Id)
                         {
                             item.User = element;
+                        }
+                    }
+                    foreach (var element in _repls)
+                    {
+                        if ((element.CommentId == item.CommentId) && !(aaa.Contains(element)))
+                        {
+                            item.Repls.Add(element);
+                            aaa.Add(element);
                         }
                     }
                     p.Add(item);

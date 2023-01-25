@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\CommentImage\" />
+    <Folder Include="wwwroot\Replimage\" />
   </ItemGroup>
 
 </Project>

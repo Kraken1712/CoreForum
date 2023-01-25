@@ -257,6 +257,36 @@ namespace MyForum.DAL.Migrations
                     b.ToTable("Posts");
                 });
 
+            modelBuilder.Entity("MyForum.BL.Entities.Repl", b =>
+                {
+                    b.Property<int>("IdRepl")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRepl"), 1L, 1);
+
+                    b.Property<int>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Picname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("IdRepl");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("Id");
+
+                    b.ToTable("Repls");
+                });
+
             modelBuilder.Entity("MyForum.BL.Entities.Theme", b =>
                 {
                     b.Property<int>("ThemeId")
@@ -454,9 +484,31 @@ namespace MyForum.DAL.Migrations
                     b.Navigation("Blog");
                 });
 
+            modelBuilder.Entity("MyForum.BL.Entities.Repl", b =>
+                {
+                    b.HasOne("MyForum.BL.Entities.Comment", "Comment")
+                        .WithMany("Repls")
+                        .HasForeignKey("CommentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyForum.BL.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("Id");
+
+                    b.Navigation("Comment");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MyForum.BL.Entities.Blog", b =>
                 {
                     b.Navigation("Posts");
+                });
+
+            modelBuilder.Entity("MyForum.BL.Entities.Comment", b =>
+                {
+                    b.Navigation("Repls");
                 });
 
             modelBuilder.Entity("MyForum.BL.Entities.Post", b =>

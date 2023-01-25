@@ -32,5 +32,6 @@ namespace MyForum.BL.Entities
         [ForeignKey("User")]
         public string? Id;
         public User? User { get; set; }
+        public virtual List<Repl>? Repls { get; set; }
     }
 }

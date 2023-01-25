@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="image\" />
+    <Folder Include="images\" />
   </ItemGroup>
 
 </Project>

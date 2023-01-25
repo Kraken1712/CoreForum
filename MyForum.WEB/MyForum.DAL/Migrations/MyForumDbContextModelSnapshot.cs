@@ -199,8 +199,8 @@ namespace MyForum.DAL.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<byte?>("Img")
-                        .HasColumnType("tinyint");
+                    b.Property<string>("Picname")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PostId")
                         .HasColumnType("int");

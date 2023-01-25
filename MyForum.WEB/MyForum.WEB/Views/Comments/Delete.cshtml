@@ -20,13 +20,13 @@
                 @Html.DisplayFor(model => model.Text)
         </dd>
         }
-        @if (Model.Img != null)
+        @if (Model.Picname != null)
         {
             <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Img)
+                @Html.DisplayNameFor(model => model.Picname)
             </dt>
             <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Img)
+                <img src="@("~/CommentImage/"+ Model.Picname)" asp-append-version="true" width="250px" height="250px" />
             </dd>
         }
     </dl>

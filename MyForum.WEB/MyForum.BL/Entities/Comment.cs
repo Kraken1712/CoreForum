@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -17,8 +19,11 @@ namespace MyForum.BL.Entities
         [Display(Name = "A Text")]
         public string? Text { get; set; }
 
-        [Display(Name = "An Image")]
-        public byte? Img { get; set; }
+        [NotMapped]
+        [DisplayName("Image")]//name of the property displayed to the user  
+        public IFormFile? Commentpic { get; set; }
+
+        public string? Picname { get; set; }
 
         [ForeignKey("Post")]
         public int PostId { get; set; }

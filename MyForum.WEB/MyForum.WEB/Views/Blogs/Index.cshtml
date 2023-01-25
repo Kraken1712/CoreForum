@@ -43,7 +43,7 @@
         @foreach (var item in Model) {
             if (item.Theme.ThemeTitle == element.ToString())
             {
-                <tr class="text-center row">
+                <tr class="text-center row" style="background-color: @item.Theme.ThemebgColor.ToString()">
                     <td class="align-middle col-2">
                         @Html.DisplayFor(modelItem => item.Url)
                     </td>

@@ -91,16 +91,24 @@ namespace MyForum.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                string wwwRootPath = _HostEnvironment.WebRootPath;
-                string filename = Path.GetFileNameWithoutExtension(post.Coverpic.FileName);
-                string extension = Path.GetExtension(post.Coverpic.FileName);
-                post.Picname = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPath + "/images/", filename);
-                using (var fileStream = new FileStream(path, FileMode.Create))
+                if (post.Picname != null)
                 {
-                    await post.Coverpic.CopyToAsync(fileStream);
+                    string wwwRootPath = _HostEnvironment.WebRootPath;
+                    string filename = Path.GetFileNameWithoutExtension(post.Coverpic.FileName);
+                    string extension = Path.GetExtension(post.Coverpic.FileName);
+                    post.Picname = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                    string path = Path.Combine(wwwRootPath + "/images/", filename);
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        await post.Coverpic.CopyToAsync(fileStream);
+                    }
+                }
+                else
+                {
+                    post.Picname = "standard pic.png";
                 }
                 //
+                post.PublishedDateTime = DateTime.Now;
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Details", "Blogs", new { id = post.BlogId });
@@ -204,7 +212,7 @@ namespace MyForum.WEB.Controllers
 
             if (post != null)
             {
-                var imagepath = Path.Combine(_HostEnvironment.WebRootPath, "postpictures", post.Picname);
+                var imagepath = Path.Combine(_HostEnvironment.WebRootPath, "images", post.Picname);
                 if (System.IO.File.Exists(imagepath))
                     System.IO.File.Delete(imagepath);
                 _context.Posts.Remove(post);

@@ -116,7 +116,7 @@ namespace MyForum.WEB.Controllers
                     p.Add(item);
                 }
             }
-            ViewBag.idblog = id;
+            ViewData["idblog"] = id;
 
             return View(p);
         }

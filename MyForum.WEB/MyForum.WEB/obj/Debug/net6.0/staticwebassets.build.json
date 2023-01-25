@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vEXReAGIOD41Cd0BVMhfxiSS/7Yb09YcdY4t4aiYwZ0=",
+  "Hash": "r8O8gpH53j/vAtbno0A2I9wjFe5uouPTAUXlgMlydSU=",
   "Source": "MyForum.WEB",
   "BasePath": "_content/MyForum.WEB",
   "Mode": "Default",
@@ -1071,6 +1071,40 @@
       "OriginalItemSpec": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MyForum.WEB.bundle.scp.css"
     },
     {
+      "Identity": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\CommentImage\\90020401_216144062835727_2104574493761470464_n231316094.jpg",
+      "SourceId": "MyForum.WEB",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\",
+      "BasePath": "_content/MyForum.WEB",
+      "RelativePath": "CommentImage/90020401_216144062835727_2104574493761470464_n231316094.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CommentImage\\90020401_216144062835727_2104574493761470464_n231316094.jpg"
+    },
+    {
+      "Identity": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\CommentImage\\90020401_216144062835727_2104574493761470464_n231640476.jpg",
+      "SourceId": "MyForum.WEB",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\",
+      "BasePath": "_content/MyForum.WEB",
+      "RelativePath": "CommentImage/90020401_216144062835727_2104574493761470464_n231640476.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CommentImage\\90020401_216144062835727_2104574493761470464_n231640476.jpg"
+    },
+    {
       "Identity": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\css\\login.css",
       "SourceId": "MyForum.WEB",
       "SourceType": "Discovered",
@@ -1139,12 +1173,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\images\\phot.png",
+      "Identity": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\images\\90020401_216144062835727_2104574493761470464_n230538579.jpg",
       "SourceId": "MyForum.WEB",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\",
       "BasePath": "_content/MyForum.WEB",
-      "RelativePath": "images/phot.png",
+      "RelativePath": "images/90020401_216144062835727_2104574493761470464_n230538579.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1153,7 +1187,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\phot.png"
+      "OriginalItemSpec": "wwwroot\\images\\90020401_216144062835727_2104574493761470464_n230538579.jpg"
     },
     {
       "Identity": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\images\\signup-icon.webp",
@@ -1171,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\signup-icon.webp"
+    },
+    {
+      "Identity": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\images\\standard pic.png",
+      "SourceId": "MyForum.WEB",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\",
+      "BasePath": "_content/MyForum.WEB",
+      "RelativePath": "images/standard pic.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\standard pic.png"
     },
     {
       "Identity": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\js\\site.js",

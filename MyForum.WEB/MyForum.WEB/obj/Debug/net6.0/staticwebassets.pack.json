@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\MyForum.WEB.bundle.scp.css"
     },
     {
+      "Id": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\CommentImage\\90020401_216144062835727_2104574493761470464_n231316094.jpg",
+      "PackagePath": "staticwebassets\\CommentImage\\90020401_216144062835727_2104574493761470464_n231316094.jpg"
+    },
+    {
+      "Id": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\CommentImage\\90020401_216144062835727_2104574493761470464_n231640476.jpg",
+      "PackagePath": "staticwebassets\\CommentImage\\90020401_216144062835727_2104574493761470464_n231640476.jpg"
+    },
+    {
       "Id": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
@@ -21,12 +29,16 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\images\\phot.png",
-      "PackagePath": "staticwebassets\\images\\phot.png"
+      "Id": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\images\\90020401_216144062835727_2104574493761470464_n230538579.jpg",
+      "PackagePath": "staticwebassets\\images\\90020401_216144062835727_2104574493761470464_n230538579.jpg"
     },
     {
       "Id": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\images\\signup-icon.webp",
       "PackagePath": "staticwebassets\\images\\signup-icon.webp"
+    },
+    {
+      "Id": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\images\\standard pic.png",
+      "PackagePath": "staticwebassets\\images\\standard pic.png"
     },
     {
       "Id": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.WEB\\wwwroot\\js\\site.js",

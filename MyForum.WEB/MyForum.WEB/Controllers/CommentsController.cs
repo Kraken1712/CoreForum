@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using MyForum.BL.Entities;
 using MyForum.DAL;
 
@@ -15,10 +16,12 @@ namespace MyForum.WEB.Controllers
     public class CommentsController : Controller
     {
         private readonly MyForumDbContext _context;
+        private readonly IWebHostEnvironment _HostEnvironment;
 
-        public CommentsController(MyForumDbContext context)
+        public CommentsController(MyForumDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _HostEnvironment= webHostEnvironment;
         }
 
         // GET: Comments
@@ -59,10 +62,23 @@ namespace MyForum.WEB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CommentId,Text,Img,PostId")] Comment comment)
+        public async Task<IActionResult> Create([Bind("CommentId,Text,Commentpic,Picname,PostId")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPath = _HostEnvironment.WebRootPath;
+                if (comment.Commentpic != null)
+                {
+                    string filename = Path.GetFileNameWithoutExtension(comment.Commentpic.FileName);
+                    string extension = Path.GetExtension(comment.Commentpic.FileName);
+                    comment.Picname = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                    string path = Path.Combine(wwwRootPath + "/CommentImage/", filename);
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        await comment.Commentpic.CopyToAsync(fileStream);
+                    }
+                }
+
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 comment.Id = userId;
                 _context.Add(comment);
@@ -95,7 +111,7 @@ namespace MyForum.WEB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CommentId,Text,Img,Id,PostId")] Comment comment)
+        public async Task<IActionResult> Edit(int id, [Bind("CommentId,Text,Commentpic,Picname,Id,PostId")] Comment comment)
         {
             if (id != comment.CommentId)
             {
@@ -106,6 +122,16 @@ namespace MyForum.WEB.Controllers
             {
                 try
                 {
+                    string wwwRootPath = _HostEnvironment.WebRootPath;
+                    string filename = Path.GetFileNameWithoutExtension(comment.Commentpic.FileName);
+                    string extension = Path.GetExtension(comment.Commentpic.FileName);
+                    comment.Picname = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                    string path = Path.Combine(wwwRootPath + "/CommentImage/", filename);
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        await comment.Commentpic.CopyToAsync(fileStream);
+                    }
+                    //
                     _context.Update(comment);
                     await _context.SaveChangesAsync();
                 }
@@ -157,6 +183,9 @@ namespace MyForum.WEB.Controllers
             var comment = await _context.Comments.FindAsync(id);
             if (comment != null)
             {
+                var imagepath = Path.Combine(_HostEnvironment.WebRootPath, "CommentImage", comment.Picname);
+                if (System.IO.File.Exists(imagepath))
+                    System.IO.File.Delete(imagepath);
                 _context.Comments.Remove(comment);
             }
 

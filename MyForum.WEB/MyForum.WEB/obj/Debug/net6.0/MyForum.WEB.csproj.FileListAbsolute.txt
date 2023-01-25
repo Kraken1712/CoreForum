@@ -851,3 +851,5 @@ D:\Visual Stedio\période 2\Forum Asp Version Finale\MyForum.WEB\MyForum.WEB\obj
 D:\Visual Stedio\période 2\Forum Asp Version Finale\MyForum.WEB\MyForum.WEB\obj\Debug\net6.0\MyForum.WEB.csproj.CopyComplete
 D:\Visual Stedio\période 2\Forum Asp Version Finale\MyForum.WEB\MyForum.WEB\obj\Debug\net6.0\MyForum.WEB.genruntimeconfig.cache
 D:\Visual Stedio\période 2\Forum Asp Version Finale\MyForum.WEB\MyForum.WEB\obj\Debug\net6.0\ref\MyForum.WEB.dll
+D:\Visual Stedio\période 2\Forum Asp Version Finale\MyForum.WEB\MyForum.WEB\bin\Debug\net6.0\SendGrid.dll
+D:\Visual Stedio\période 2\Forum Asp Version Finale\MyForum.WEB\MyForum.WEB\bin\Debug\net6.0\StarkbankEcdsa.dll

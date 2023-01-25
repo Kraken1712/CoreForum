@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyForum.DAL;
 using MyForum.BL.Entities;
+using WebPWrecover.Services;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using MyForum.WEB.Models.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +14,12 @@ builder.Services.AddDbContext<MyForumDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<MyForumDbContext>()
     .AddDefaultUI()
     .AddDefaultTokenProviders();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddAuthentication()

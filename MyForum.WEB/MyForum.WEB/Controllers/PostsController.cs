@@ -61,14 +61,6 @@ namespace MyForum.WEB.Controllers
                             item.User = element;
                         }
                     }
-                    foreach (var element in _repls)
-                    {
-                        if ((element.CommentId == item.CommentId) && !(aaa.Contains(element)))
-                        {
-                            item.Repls.Add(element);
-                            aaa.Add(element);
-                        }
-                    }
                     p.Add(item);
                 }
 

@@ -118,6 +118,17 @@ namespace MyForum.WEB.Controllers
             }
             ViewData["idblog"] = id;
 
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            
+            if (userId == blog.Id)
+            {
+                ViewData["user_id"] = "true";
+            }
+            else
+            {
+                ViewData["user_id"] = "false";
+            }
+
             return View(p);
         }
 

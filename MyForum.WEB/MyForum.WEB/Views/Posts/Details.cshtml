@@ -43,8 +43,14 @@
                     }
                 </td>
                 <td class="align-middle col-3">
-                    <a class="btn btn-outline-primary" asp-controller="Comments" asp-action="Edit" asp-route-id="@item.CommentId"><i class="bi bi-ticket-detailed-fill"></i> Edit</a> |
-                    <a class="btn btn-danger text-white" asp-controller="Comments" asp-action="Delete" asp-route-id="@item.CommentId"><i class="bi bi-trash"></i> Delete</a> |
+                    @foreach (var u in ViewBag.CommentsUsed)
+                    {
+                        @if (u.ToString() == item.CommentId.ToString())
+                        {
+                            <a class="btn btn-outline-primary" asp-controller="Comments" asp-action="Edit" asp-route-id="@item.CommentId"><i class="bi bi-ticket-detailed-fill"></i> Edit</a> 
+                            <a class="btn btn-danger text-white" asp-controller="Comments" asp-action="Delete" asp-route-id="@item.CommentId"><i class="bi bi-trash"></i> Delete</a>
+                        }
+                    }
                     <a class="btn btn-outline-success" asp-controller="Repls" asp-action="Create" asp-route-id="@item.CommentId"><i class="bi bi-stickies-fill">Reply</i></a>
                 </td>
             </tr>

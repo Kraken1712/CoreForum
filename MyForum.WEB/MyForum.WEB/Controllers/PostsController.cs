@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -49,7 +50,8 @@ namespace MyForum.WEB.Controllers
             }
             var _repls = await _context.Repls.ToListAsync();
             var _users = await _userManager.Users.ToListAsync();
-            List<Repl> aaa = new List<Repl>(); 
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            List<string> comm = new List<string>();
             foreach (var item in _context.Comments)
             {
                 if (item.PostId == id)
@@ -63,6 +65,10 @@ namespace MyForum.WEB.Controllers
                     }
                     p.Add(item);
                 }
+                if (userId == item.Id)
+                {
+                    comm.Add(item.CommentId.ToString());
+                }
 
             }
 
@@ -72,6 +78,7 @@ namespace MyForum.WEB.Controllers
             ViewData["idpost"] = id;
             ViewData["idblog"] = post.BlogId;
 
+            ViewBag.CommentsUsed = comm;
 
             return View(p);
         }

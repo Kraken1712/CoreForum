@@ -13,10 +13,6 @@
 
 <h1>Blogs</h1>
 <br />
-<div class="row">
-    <a class="btn btn-outline-success col-3" asp-controller="Themes" asp-action="Create"><i class="bi bi-stickies-fill"></i> Create A New Theme</a>
-    <a class="btn btn-outline-success offset-6 col-3" asp-action="Create"><i class="bi bi-stickies-fill"></i> Create A New Blog</a>
-</div>
 
 <br />
 @foreach (var element in ViewBag.Themes)
@@ -66,9 +62,7 @@
                             }
                     </td>
                     <td class="align-middle col-5">
-                        <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.BlogId"><i class="bi bi-ticket-detailed-fill"></i> Edit</a> |
-                        <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.BlogId"><i class="bi bi-eye"></i> Details</a> |
-                        <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.BlogId"><i class="bi bi-trash"></i> Delete</a>
+                        <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.BlogId"><i class="bi bi-eye"></i> Details</a>
                     </td>
                 </tr>
             }

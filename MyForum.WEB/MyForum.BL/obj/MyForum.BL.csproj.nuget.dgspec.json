@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.BL\\MyForum.BL.csproj": {}
+    "D:\\Visual Stedio\\période 2\\New folder\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.BL\\MyForum.BL.csproj": {}
   },
   "projects": {
-    "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.BL\\MyForum.BL.csproj": {
+    "D:\\Visual Stedio\\période 2\\New folder\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.BL\\MyForum.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.BL\\MyForum.BL.csproj",
+        "projectUniqueName": "D:\\Visual Stedio\\période 2\\New folder\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.BL\\MyForum.BL.csproj",
         "projectName": "MyForum.BL",
-        "projectPath": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.BL\\MyForum.BL.csproj",
+        "projectPath": "D:\\Visual Stedio\\période 2\\New folder\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.BL\\MyForum.BL.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Stedio\\période 2\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.BL\\obj\\",
+        "outputPath": "D:\\Visual Stedio\\période 2\\New folder\\Forum Asp Version Finale\\MyForum.WEB\\MyForum.BL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

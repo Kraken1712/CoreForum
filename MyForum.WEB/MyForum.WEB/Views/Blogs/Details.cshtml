@@ -33,21 +33,21 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
-                            <p class="card-text">This is a Post Concerning The Blog @item.Blog.BlogId</p>
                             <p class="card-text"><b>Title: </b>@item.Title</p>
+                            <p class="card-text"><b>Description: </b>@item.Description</p>
                             <p class="card-text"><b>Publish Time: </b>@item.PublishedDateTime.ToString("dddd, dd MMMM yyyy HH:mm:ss")</p>
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="card-footer ">
                             <p class="card-text">
-                                <a class="btn btn-outline-primary float-right" asp-controller="Posts" asp-action="Details" asp-route-id="@item.PostId">
+                                <a class="btn btn-outline-primary col-12" asp-controller="Posts" asp-action="Details" asp-route-id="@item.PostId">
                                     <i class="bi bi-eye-fill"></i> Show Details
                                 </a>
                                 @if (ViewData["user_id"] == "true")
                                 {
-                                    <a class="btn btn-outline-primary" asp-controller="Posts" asp-action="Edit" asp-route-id="@item.PostId"><i class="bi bi-ticket-detailed-fill"></i> Edit</a>
-                                    <a class="btn btn-danger text-white" asp-controller="Posts" asp-action="Delete" asp-route-id="@item.PostId"><i class="bi bi-trash"></i> Delete</a>
+                                    <a class="btn btn-outline-primary col-5" asp-controller="Posts" asp-action="Edit" asp-route-id="@item.PostId"><i class="bi bi-ticket-detailed-fill"></i> Edit</a>
+                                    <a class="btn btn-danger text-white offset-1 col-5 align-content-end" asp-controller="Posts" asp-action="Delete" asp-route-id="@item.PostId"><i class="bi bi-trash"></i> Delete</a>
                                 }
                             </p>
                         </div>
@@ -58,5 +58,5 @@
     }
 </div>
 <div>
-    <a asp-action="Index"><i class="bi bi-back"></i> Back to List</a>
+    <a class="btn btn-outline-warning" asp-action="Index"><i class="bi bi-back"></i> Back</a>
 </div>

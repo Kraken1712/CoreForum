@@ -99,7 +99,7 @@ namespace MyForum.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (post.Picname != null)
+                if (post.Coverpic != null)
                 {
                     string wwwRootPath = _HostEnvironment.WebRootPath;
                     string filename = Path.GetFileNameWithoutExtension(post.Coverpic.FileName);

@@ -17,7 +17,7 @@ namespace MyForum.BL.Entities
         [MaxLength(20)]
         public string? ThemeTitle { get; set; }
 
-        [Display(Name = "Theme Color in Hash")]
+        [Display(Name = "Theme Color in Hex")]
         [MaxLength(20)]
         public string? ThemebgColor { get; set; }
 

@@ -31,6 +31,8 @@ namespace MyForum.WEB.Controllers
             for (int i=0; i < themes.Count; ++i)
             {
                 themeTitles.Add(themes[i].ThemeTitle);
+                ViewData[themes[i].ThemeTitle] = themes[i].ThemebgColor;
+
             }
             ViewBag.Themes = themeTitles;
             var _users = await _userManager.Users.ToListAsync();

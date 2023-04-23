@@ -60,7 +60,7 @@ namespace MyForum.WEB.Controllers
             {
                 _context.Add(theme);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index","Blogs");
             }
             return View(theme);
         }

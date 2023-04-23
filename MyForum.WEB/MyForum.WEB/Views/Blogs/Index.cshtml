@@ -18,32 +18,32 @@
 @foreach (var element in ViewBag.Themes)
 {
     
-    <h3>Theme @element.ToString()</h3>
+    <h3 style="background-color: @ViewData[element.ToString()]">Theme @element.ToString()</h3>
 
-    <table class="table">
+    <table class="table tabcc">
         <thead>
             <tr class="text-center row">
                 <th class="align-middle col-2">
                     @Html.DisplayNameFor(model => model.Url)
                 </th>
-                <th class="align-middle col-3">
+                <th class="align-middle col-5">
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th class="align-middle col-2">
                     Created By
                 </th>
-                <th class="col-5"></th>
+                <th class="col-3"></th>
             </tr>
         </thead>
         <tbody>
         @foreach (var item in Model) {
             if (item.Theme.ThemeTitle == element.ToString())
             {
-                <tr class="text-center row" style="background-color: @item.Theme.ThemebgColor.ToString()">
+                <tr class="text-center row">
                     <td class="align-middle col-2">
                         @Html.DisplayFor(modelItem => item.Url)
                     </td>
-                    <td class="align-middle col-3">
+                    <td class="align-middle col-5">
                         @Html.DisplayFor(modelitem => item.Description)
                     </td>
                     <td class="align-middle col-2">
@@ -61,7 +61,7 @@
                                 }
                             }
                     </td>
-                    <td class="align-middle col-5">
+                    <td class="align-middle col-3">
                         <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.BlogId"><i class="bi bi-eye"></i> Details</a>
                     </td>
                 </tr>

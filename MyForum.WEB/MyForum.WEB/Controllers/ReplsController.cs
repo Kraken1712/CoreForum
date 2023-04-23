@@ -52,6 +52,12 @@ namespace MyForum.WEB.Controllers
         public IActionResult Create(int? id)
         {
             ViewData["idcomment"] = id;
+            List<Comment> comments = _context.Comments.ToList();
+            foreach (var ele in comments)
+            {
+                if (id == ele.CommentId)
+                    ViewData["idpost"] = ele.PostId;
+            }
             return View();
         }
 
@@ -77,11 +83,20 @@ namespace MyForum.WEB.Controllers
                     }
                 }
 
+                var comments = await _context.Comments.ToListAsync();
+                foreach (var elemnt in comments)
+                {
+                    if (repl.CommentId == elemnt.CommentId)
+                    {
+                        repl.Comment = elemnt;
+                    }
+                }
+
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 repl.Id = userId;
                 _context.Add(repl);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Posts", new { id = repl.Comment.PostId });
             }
             ViewData["CommentId"] = new SelectList(_context.Comments, "CommentId", "CommentId", repl.CommentId);
             return View(repl);

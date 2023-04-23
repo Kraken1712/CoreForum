@@ -14,7 +14,7 @@ builder.Services.AddDbContext<MyForumDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<MyForumDbContext>()
     .AddDefaultUI()
     .AddDefaultTokenProviders();
